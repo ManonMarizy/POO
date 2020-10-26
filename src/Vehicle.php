@@ -8,7 +8,7 @@ abstract class Vehicle
     /**
      * @var integer
      */
-    private $currentSpeed;
+    protected $currentSpeed;
     /**
      * @var integer
      */

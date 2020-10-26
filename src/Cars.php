@@ -12,6 +12,10 @@ class Cars extends Vehicle
      */
     private $energyLevel;
     /**
+     * @var bool
+     */
+    private $hasParkBrake = false;
+    /**
      * Cars constructor.
      * @param string $color
      * @param int $nbSeats
@@ -21,6 +25,22 @@ class Cars extends Vehicle
     {
         parent::__construct($color, $nbSeats);
         $this->energy = $energy;
+    }
+    /**
+     * @return mixed|void
+     */
+    public function changeWheel()
+    {
+    }
+    /**
+     * @return string
+     */
+    public function start()
+    {
+        $this->currentSpeed = 0;
+        if ($this->hasParkBrake)
+            throw new Exception("you can't move, park brake is on");
+        return "Start";
     }
     /**
      * @return string
@@ -51,9 +71,11 @@ class Cars extends Vehicle
         $this->energyLevel = $energyLevel;
     }
     /**
-     *
+     * @param bool $hasParkBrake
      */
-    public function changeWheel()
+    public function setParkBrake(bool $hasParkBrake): void
     {
+        $this->hasParkBrake = $hasParkBrake;
     }
+
 }

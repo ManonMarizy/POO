@@ -31,4 +31,13 @@ echo $cars->brake();
 echo '<br> Vitesse de la voiture : ' . $cars->getCurrentSpeed(). ' km/h' . '<br>';
 echo $cars->brake();
 
+echo "<br>";
 
+$cars->setParkBrake(true);
+try {
+    echo $cars->start();
+} catch(Exception $exception) {
+    echo "Exception received:" . $exception->getMessage() . "<br>";
+} finally {
+    echo "Ma voiture roule comme un donut";
+}
