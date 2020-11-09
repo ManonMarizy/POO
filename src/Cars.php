@@ -1,7 +1,9 @@
 <?php
-require_once 'Vehicle.php';
 
-class Cars extends Vehicle
+require_once 'Vehicle.php';
+require_once 'LightableInterface.php';
+
+class Cars extends Vehicle implements LightableInterface
 {
     /**
      * @var string
@@ -25,6 +27,21 @@ class Cars extends Vehicle
     {
         parent::__construct($color, $nbSeats);
         $this->energy = $energy;
+    }
+
+    /**
+     * @return bool
+     */
+    public function switchOn(): bool
+    {
+        return true;
+    }
+    /**
+     * @return bool
+     */
+    public function switchOff(): bool
+    {
+        return false;
     }
     /**
      * @return mixed|void
